@@ -24,7 +24,7 @@ exports.getPlanetById = async (request, response) => {
 exports.addPlanet = async (request, response) => {
   const { Name, Type, Distance, Moons } = request.body
   try {
-    await planetService.addPlanet(Name, Type, Distance, Moons)
+    await planetService.addPlanet({ Name, Type, Distance, Moons })
     return response
       .status(201)
       .json({ sucess: true, message: "Planet added successfully" })

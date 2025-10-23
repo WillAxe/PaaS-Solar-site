@@ -1,12 +1,11 @@
-const express = require("express")
 const dataBaseConnection = require("../database_connection/connectionPostgres")
 
 function getPlanets() {
   return new Promise((resolve, reject) => {
     const query = "SELECT * FROM Planets"
-    dataBaseConnection.query(query, (err, rows) => {
+    dataBaseConnection.query(query, (err, planets) => {
       if (err) reject(err)
-      else resolve(rows)
+      else resolve(planets.rows)
     })
   })
 }
@@ -14,9 +13,9 @@ function getPlanets() {
 function getPlanetById(id) {
   return new Promise((resolve, reject) => {
     const query = "SELECT * FROM Planets WHERE id = $1"
-    dataBaseConnection.query(query, [id], (err, rows) => {
+    dataBaseConnection.query(query, [id], (err, planet) => {
       if (err) reject(err)
-      else resolve(rows)
+      else resolve(planet.rows)
     })
   })
   // try {
