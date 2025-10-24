@@ -15,19 +15,9 @@ function getPlanetById(id) {
     const query = "SELECT * FROM Planets WHERE id = $1"
     dataBaseConnection.query(query, [id], (err, planet) => {
       if (err) reject(err)
-      else resolve(planet.rows)
+      else resolve(planet.rows[0])
     })
   })
-  // try {
-  //   const result = await dataBaseConnection.query(
-  //     "SELECT * FROM planets WHERE id = $1",
-  //     [id]
-  //   )
-  //   return result.rows[0]
-  // } catch (error) {
-  //   console.log("Error fetching planet by ID", error)
-  //   throw error
-  // }
 }
 
 function addPlanet({ Name, Type, Distance, Moons }) {

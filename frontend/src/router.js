@@ -11,7 +11,7 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: "/api/planets",
+      path: "/planets",
       name: "planets",
       component: PlanetsView,
     },

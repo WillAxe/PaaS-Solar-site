@@ -6,5 +6,5 @@
   <div>
     <h1>Welcome to SolarSite</h1>
   </div>
-  <RouterLink to="/api/planets">To the planets</RouterLink>
+  <RouterLink to="/planets">To the planets</RouterLink>
 </template>
